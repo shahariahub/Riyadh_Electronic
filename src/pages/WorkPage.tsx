@@ -83,20 +83,22 @@ const WorkPage: React.FC<WorkPageProps> = ({ theme, works }) => {
           {works.map((work) => (
             <div key={work.id} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <BeforeAfterSlider before={work.before} after={work.after} title={work.title} />
-              <div className="p-8 bg-black/50 rounded-2xl border border-white/5 hover:border-amber-400/30 transition-all group h-full flex flex-col justify-center">
+              <div className={`p-8 rounded-3xl border transition-all group h-full flex flex-col justify-center ${
+                theme === 'dark' ? 'bg-slate-900/40 border-white/5 hover:border-amber-400/30' : 'bg-slate-100/50 border-slate-200 hover:border-amber-400/30'
+              }`}>
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-3xl font-bold text-white group-hover:text-amber-400 transition-colors">{work.title}</h3>
+                  <h3 className={`text-3xl font-bold transition-colors group-hover:text-amber-500 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{work.title}</h3>
                   <span className="px-3 py-1 rounded-full bg-amber-400/20 text-amber-400 text-xs font-bold uppercase tracking-widest">
                     {work.brand}
                   </span>
                 </div>
-                <p className="text-lg text-gray-300 leading-relaxed italic border-l-4 border-amber-400 pl-6 mb-8">{work.description}</p>
-                <div className="pt-6 border-t border-white/10 flex items-center justify-between text-sm">
+                <p className={`text-lg leading-relaxed italic border-l-4 border-amber-400 pl-6 mb-8 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>{work.description}</p>
+                <div className={`pt-6 border-t flex items-center justify-between text-sm ${theme === 'dark' ? 'border-white/10' : 'border-slate-200'}`}>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                    <span className="text-amber-400 font-bold">100% Fully Restored</span>
+                    <span className="text-amber-500 font-bold">100% Restored</span>
                   </div>
-                  <span className="text-gray-500 font-medium">Authentic Replacement Parts Used</span>
+                  <span className={`${theme === 'dark' ? 'text-gray-500' : 'text-slate-400'} font-medium`}>Original Parts Only</span>
                 </div>
               </div>
             </div>

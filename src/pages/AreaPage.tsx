@@ -18,50 +18,64 @@ const AreaPage: React.FC<AreaPageProps> = ({ areaId, theme, areas, reviews }) =>
 
   return (
     <div className="w-full pt-20">
-      <section className="py-20 bg-gradient-to-b from-black to-slate-900 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block px-4 py-1 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-400 text-sm font-bold mb-6">
-            LOCAL SERVICE: {area.name.toUpperCase()}
+      <section className={`py-24 relative overflow-hidden transition-all ${
+        theme === 'dark' ? 'bg-gradient-to-b from-black to-slate-900' : 'bg-slate-100'
+      }`}>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500 rounded-full blur-[150px]"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className={`inline-block px-4 py-2 rounded-2xl border text-xs font-black mb-8 uppercase tracking-[0.2em] ${
+            theme === 'dark' ? 'bg-amber-400/20 border-amber-400/30 text-amber-400' : 'bg-amber-400/10 border-amber-400/20 text-amber-600'
+          }`}>
+            Priority Area: {area.name.toUpperCase()}
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8">
-            Best TV Repair Near {area.name}
+          <h1 className={`text-4xl md:text-7xl font-black mb-10 tracking-tighter leading-tight ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
+            Master Repair <br /> Near {area.name}
           </h1>
-          <p className="text-2xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
-            Facing TV issues in {area.name}? Riyadh Electronic offers professional, high-speed on-site television repair services exactly where you are. All brands, all models, 24/7.
+          <p className={`text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-medium ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>
+            Facing panel failure in {area.name}? Riyadh Electronic deploys specialized engineering units for instant on-site restoration.
           </p>
           <div className="flex justify-center gap-4">
-            <a href="tel:01726-725236" className="px-8 py-4 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 font-bold flex items-center gap-2 hover:scale-105 transition-all shadow-lg shadow-amber-400/20">
-              <Phone size={20} /> Call Now: 01726-725236
+            <a href="tel:01726-725236" className="px-10 py-5 rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 font-black text-lg flex items-center gap-3 hover:shadow-2xl hover:shadow-amber-400/50 transition-all">
+              <Phone size={24} /> 01726-725236
             </a>
           </div>
         </div>
       </section>
 
-      <section className={`py-20 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
+      <section className={`py-32 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             <div>
-              <h2 className={`text-4xl font-bold mb-8 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Why Choose Us in {area.name}?</h2>
-              <div className="space-y-6">
+              <h2 className={`text-4xl sm:text-6xl font-black mb-12 tracking-tight leading-tight ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Local Superiority <br /> in {area.name}</h2>
+              <div className="space-y-8">
                 {[
-                  { title: '1-Hour Response Time', desc: `Our technicians are already active in the ${area.name} area.` },
-                  { title: 'No Call-Out Fee', desc: `Zero travel charges for customers living in ${area.name}.` },
-                  { title: 'Full Panel Guarantee', desc: 'Specialized equipment for OLED and 4K panel restorations.' }
+                  { title: 'Immediate Response', desc: `Our rapid deployment teams are perpetually active within ${area.name}.` },
+                  { title: 'Zero Logistics Cost', desc: `Complimentary panel inspection for all citizens of ${area.name}.` },
+                  { title: 'Display Specialization', desc: 'The absolute authority in OLED and 8K display restorations.' }
                 ].map((feat, i) => (
-                  <div key={i} className="flex gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-amber-400/20 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="text-amber-400" />
+                  <div key={i} className="flex gap-6 group">
+                    <div className="w-16 h-16 rounded-2xl bg-slate-900 border border-white/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-xl">
+                      <CheckCircle className="text-amber-400" size={32} />
                     </div>
                     <div>
-                      <h3 className={`text-xl font-bold mb-1 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{feat.title}</h3>
-                      <p className={theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}>{feat.desc}</p>
+                      <h3 className={`text-xl font-black mb-2 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{feat.title}</h3>
+                      <p className={`font-medium ${theme === 'dark' ? 'text-gray-500' : 'text-slate-500'}`}>{feat.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1593784991095-a205039470b6?auto=format&fit=crop&q=80&w=1000" alt={`TV Repair in ${area.name}`} className="w-full h-full object-cover" />
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-amber-400/20 to-orange-500/20 rounded-[3rem] blur-[60px] opacity-50"></div>
+              <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-3xl aspect-[4/5] md:aspect-video">
+                <img src="https://images.unsplash.com/photo-1593784991095-a205039470b6?auto=format&fit=crop&q=80&w=1000" alt={`TV Repair in ${area.name}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                <div className="absolute bottom-8 left-8">
+                  <p className="text-amber-400 font-black text-xs uppercase tracking-[0.2em]">Verified Facility: {area.name}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

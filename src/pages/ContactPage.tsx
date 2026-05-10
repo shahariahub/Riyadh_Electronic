@@ -8,80 +8,94 @@ interface ContactPageProps {
 
 const ContactPage: React.FC<ContactPageProps> = ({ theme }) => (
   <div className="w-full pt-20">
-    <section className="py-20 bg-gradient-to-b from-black to-slate-900">
+    <section className={`py-16 transition-all ${theme === 'dark' ? 'bg-gradient-to-b from-black to-slate-900' : 'bg-slate-50'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-5xl font-bold text-white text-center mb-6">Get in Touch</h1>
-        <p className="text-xl text-gray-300 text-center max-w-2xl mx-auto">
-          We're available 24/7 for all your TV and electronics repair needs
+        <h1 className={`text-4xl sm:text-6xl font-black text-center mb-6 tracking-tight ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Get in Touch</h1>
+        <p className={`text-lg text-center max-w-2xl mx-auto font-medium ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>
+          Dhaka's most responsive tech support. Available 24/7 for emergency repairs.
         </p>
       </div>
     </section>
 
     {/* Contact Methods */}
-    <section className="py-20 bg-black">
+    <section className={`py-24 transition-all ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
           {/* Phone */}
-          <div className="bg-black rounded-2xl p-8 border border-slate-800 hover:border-amber-400/50 transition-all hover:scale-105">
-            <div className="p-4 rounded-xl bg-gradient-to-r from-amber-400/20 to-orange-500/20 w-fit mb-4">
-              <Phone size={32} className="text-amber-400" />
+          <div className={`rounded-[2.5rem] p-10 border transition-all duration-500 hover:scale-[1.03] ${
+            theme === 'dark' ? 'bg-slate-900/40 border-slate-800 hover:border-amber-400/50' : 'bg-white border-slate-100 hover:border-amber-400 shadow-xl shadow-slate-200/50'
+          }`}>
+            <div className="p-4 rounded-2xl bg-amber-400/10 w-fit mb-8">
+              <Phone size={36} className="text-amber-500" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Call Us</h3>
-            <p className="text-gray-400 mb-6 text-sm">Speak directly with our experts 24/7</p>
-            <a href="tel:01726-725236" className="block text-center px-6 py-3 rounded-lg bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 font-bold hover:shadow-2xl hover:shadow-amber-400/50 transition-all">
+            <h3 className={`text-2xl font-black mb-3 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Call Now</h3>
+            <p className={`${theme === 'dark' ? 'text-gray-500' : 'text-slate-400'} mb-8 text-sm font-medium`}>Direct line to our senior technical lead.</p>
+            <a href="tel:01726-725236" className="block text-center px-6 py-5 rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 font-black text-lg hover:shadow-2xl hover:shadow-amber-400/50 transition-all">
               01726-725236
             </a>
           </div>
 
           {/* WhatsApp */}
-          <div className="bg-black rounded-2xl p-8 border border-slate-800 hover:border-green-500/50 transition-all hover:scale-105">
-            <div className="p-4 rounded-xl bg-green-500/20 w-fit mb-4">
-              <MessageCircle size={32} className="text-green-500" />
+          <div className={`rounded-[2.5rem] p-10 border transition-all duration-500 hover:scale-[1.03] ${
+            theme === 'dark' ? 'bg-slate-900/40 border-slate-800 hover:border-green-500/50' : 'bg-white border-slate-100 hover:border-green-500 shadow-xl shadow-slate-200/50'
+          }`}>
+            <div className="p-4 rounded-2xl bg-green-500/10 w-fit mb-8">
+              <MessageCircle size={36} className="text-green-500" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">WhatsApp</h3>
-            <p className="text-gray-400 mb-6 text-sm">Quick chat with instant response</p>
-            <a href="https://wa.me/8801726725236" target="_blank" rel="noopener noreferrer" className="block text-center px-6 py-3 rounded-lg bg-green-500 text-white font-bold hover:shadow-2xl hover:shadow-green-500/50 transition-all">
-              Message Now
+            <h3 className={`text-2xl font-black mb-3 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>WhatsApp</h3>
+            <p className={`${theme === 'dark' ? 'text-gray-500' : 'text-slate-400'} mb-8 text-sm font-medium`}>Send photo or video of your TV problem.</p>
+            <a href="https://wa.me/8801726725236" target="_blank" rel="noopener noreferrer" className="block text-center px-6 py-5 rounded-2xl bg-green-500 text-white font-black text-lg hover:shadow-2xl hover:shadow-green-500/50 transition-all">
+              Message
             </a>
           </div>
 
           {/* Address */}
-          <div className="bg-black rounded-2xl p-8 border border-slate-800 hover:border-blue-500/50 transition-all hover:scale-105">
-            <div className="p-4 rounded-xl bg-blue-500/20 w-fit mb-4">
-              <MapPin size={32} className="text-blue-500" />
+          <div className={`rounded-[2.5rem] p-10 border transition-all duration-500 hover:scale-[1.03] ${
+            theme === 'dark' ? 'bg-slate-900/40 border-slate-800 hover:border-blue-500/50' : 'bg-white border-slate-100 hover:border-blue-500 shadow-xl shadow-slate-200/50'
+          }`}>
+            <div className="p-4 rounded-2xl bg-blue-500/10 w-fit mb-8">
+              <MapPin size={36} className="text-blue-500" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Visit Us</h3>
-            <p className="text-gray-400 mb-1 text-sm">1st Floor, AB Super Market</p>
-            <p className="text-gray-400 mb-6 text-sm">Uttara Sector 3, Dhaka 1230</p>
-            <a href="https://share.google/ymctgvIBvG8NjxtG0" target="_blank" rel="noopener noreferrer" className="block text-center px-6 py-3 rounded-lg bg-blue-500 text-white font-bold hover:shadow-2xl hover:shadow-blue-500/50 transition-all">
-              View Map
+            <h3 className={`text-2xl font-black mb-3 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Service Center</h3>
+            <p className={`${theme === 'dark' ? 'text-gray-500' : 'text-slate-400'} mb-8 text-sm font-medium`}>AB Super Market, Sector 3, Uttara.</p>
+            <a href="https://share.google/ymctgvIBvG8NjxtG0" target="_blank" rel="noopener noreferrer" className="block text-center px-6 py-5 rounded-2xl bg-blue-500 text-white font-black text-lg hover:shadow-2xl hover:shadow-blue-500/50 transition-all">
+              Live Map
             </a>
           </div>
 
           {/* Hours */}
-          <div className="bg-black rounded-2xl p-8 border border-slate-800 hover:border-purple-500/50 transition-all hover:scale-105">
-            <div className="p-4 rounded-xl bg-purple-500/20 w-fit mb-4">
-              <Clock size={32} className="text-purple-500" />
+          <div className={`rounded-[2.5rem] p-10 border transition-all duration-500 hover:scale-[1.03] ${
+            theme === 'dark' ? 'bg-slate-900/40 border-slate-800 hover:border-purple-500/50' : 'bg-white border-slate-100 hover:border-purple-500 shadow-xl shadow-slate-200/50'
+          }`}>
+            <div className="p-4 rounded-2xl bg-purple-500/10 w-fit mb-8">
+              <Clock size={36} className="text-purple-500" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4 text-left">Repair Hours</h3>
-            <p className="text-gray-400 mb-1 text-sm">Available 24 Hours</p>
-            <p className="text-gray-400 mb-6 text-sm">7 Days a Week</p>
-            <div className="text-amber-400 font-bold text-xs uppercase tracking-widest">Emergency Shop Open</div>
+            <h3 className={`text-2xl font-black mb-3 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Open Hours</h3>
+            <p className={`${theme === 'dark' ? 'text-gray-500' : 'text-slate-400'} mb-8 text-sm font-medium`}>Always open for your tech needs.</p>
+            <div className="w-full text-center py-5 rounded-2xl bg-slate-900 text-amber-400 font-black uppercase tracking-[0.2em] text-xs">
+              24/7 Available
+            </div>
           </div>
         </div>
 
         {/* Service Areas */}
-        <div className="bg-black rounded-2xl p-12 border border-slate-800 mb-20 shadow-2xl">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">Home Service Areas</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <div className={`rounded-[3rem] p-10 sm:p-20 border mb-20 transition-all ${
+          theme === 'dark' ? 'bg-slate-900/20 border-slate-800' : 'bg-slate-50 border-slate-100 shadow-2xl shadow-slate-200/30'
+        }`}>
+          <h2 className={`text-4xl font-black mb-16 text-center tracking-tight ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Full Dhaka Coverage</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {['Uttara', 'Bashundhara', 'Gulshan', 'Banani', 'Mirpur', 'Dhanmondi'].map((area) => (
-              <div key={area} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
-                <CheckCircle size={24} className="text-green-500 flex-shrink-0" />
-                <span className="text-white font-bold">{area}</span>
+              <div key={area} className={`flex flex-col items-center gap-4 p-8 rounded-[2rem] border transition-all ${
+                theme === 'dark' ? 'bg-black/40 border-white/5 hover:border-amber-400/30' : 'bg-white border-slate-100 hover:border-amber-400/30 hover:shadow-xl'
+              }`}>
+                <div className="p-3 rounded-xl bg-green-500/10">
+                  <CheckCircle size={32} className="text-green-500" />
+                </div>
+                <span className={`font-black text-xs uppercase tracking-widest ${theme === 'dark' ? 'text-white' : 'text-slate-800'}`}>{area}</span>
               </div>
             ))}
           </div>
-          <p className="text-gray-400 text-center mt-10 text-sm italic">Free home diagnosis and professional on-site repair available for all areas in Dhaka.</p>
+          <p className={`text-center mt-12 text-sm font-medium ${theme === 'dark' ? 'text-gray-500' : 'text-slate-500'}`}>Expert on-site mobile repair teams deployed everywhere in Dhaka city.</p>
         </div>
       </div>
     </section>

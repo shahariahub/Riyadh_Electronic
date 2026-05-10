@@ -16,6 +16,8 @@ import ContactPage from './pages/ContactPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
 import AreaPage from './pages/AreaPage';
 
+import { motion, AnimatePresence } from 'motion/react';
+
 const RiyadhElectronicWebsite = () => {
   const [currentPage, setCurrentPage] = useState('home');
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -148,7 +150,7 @@ const RiyadhElectronicWebsite = () => {
       case 'services':
         return <ServicesPage theme={theme} servicesData={SERVICES_DATA} setCurrentPage={setCurrentPage} />;
       case 'about':
-        return <AboutPage theme={theme} />;
+        return <AboutPage theme={theme} setCurrentPage={setCurrentPage} />;
       case 'contact':
         return <ContactPage theme={theme} />;
       case 'work':
@@ -167,19 +169,9 @@ const RiyadhElectronicWebsite = () => {
   };
 
   return (
-    <div className={`min-h-screen font-sans transition-colors duration-300 ${
+    <div className={`min-h-screen transition-colors duration-300 ${
       theme === 'dark' ? 'bg-black text-white' : 'bg-white text-slate-900'
     }`}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
-        * { font-family: 'Poppins', sans-serif; }
-        html { scroll-behavior: smooth; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        .animate-float { animation: float 3s ease-in-out infinite; }
-        .animate-bounce { animation: bounce 2s infinite; }
-      `}</style>
-
       <Navigation 
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
@@ -191,7 +183,17 @@ const RiyadhElectronicWebsite = () => {
       />
       
       <main className="min-h-screen">
-        {renderPage()}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentPage}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+          >
+            {renderPage()}
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       <Footer theme={theme} setCurrentPage={setCurrentPage} />
