@@ -216,17 +216,17 @@ export const WORKS: Work[] = [
 ];
 
 export const SEO_TITLES: { [key: string]: string } = {
-  home: 'Riyadh Electronic - Best TV & LED Repair Center in Dhaka | Home Service',
-  services: 'Expert TV Repair Services Dhaka - LED, OLED, 4K Screen Fix & Install',
-  about: 'About Riyadh Electronic Dhaka - 10+ Years of Professional Repair Excellence',
-  contact: 'Contact Riyadh Electronic - Instant TV Repair in Uttara, Gulshan & Dhaka',
-  work: 'TV Repair Portfolio Dhaka: Successful LED & OLED Restorations'
+  home: 'Riyadh Electronic - Tv Repair Uttara',
+  services: 'Expert TV Repair Services Uttara & Dhaka | LED, OLED, 4K Display Fix',
+  about: 'About Riyadh Electronic - 10+ Years of TV Repair Excellence in Uttara & Dhaka',
+  contact: 'Contact Riyadh Electronic - Instant TV Repair in Uttara & Dhaka (01726-725236)',
+  work: 'TV Repair Portfolio - LED & OLED Restoration Projects in Uttara & Dhaka'
 };
 
 export const SEO_DESCRIPTIONS: { [key: string]: string } = {
-  home: 'Riyadh Electronic is the #1 LED/OLED TV repair service in Dhaka. Expert home service for Samsung, Sony, LG in Uttara, Gulshan, Banani. Available 24/7.',
-  services: 'Complete Dhaka TV repair solutions: Panel replacement, motherboard repair, and wall mounting. Original parts for all brands in Dhaka City.',
-  about: 'With 10+ years experience, Riyadh Electronic is Dhaka\'s most trusted TV service center. We specialize in high-end panel and circuit restoration.',
-  contact: 'Need TV repair in Dhaka? Call 01726-725236. Fast home service in Uttara, Mirpur, Bashundhara, and all Dhaka residential areas.',
-  work: 'See our expert TV repairs in Dhaka. Case studies of successful screen replacements and electronic repairs across Dhaka City.'
+  home: 'Riyadh Electronic is the #1 company for TV Repair in Uttara & Dhaka. Expert 24/7 on-site service for Samsung, Sony, LG, OLED, & LED television panels.',
+  services: 'Complete TV repair services in Uttara & Dhaka: OLED screen replacement, smart panel repairs, sound hardware fixes, and motherboard micro-soldering.',
+  about: 'With 10+ years of trust, Riyadh Electronic is Uttara & Dhaka\'s ultimate TV service center. We deploy master technicians for all global screen brands.',
+  contact: 'Get fast TV repair in Uttara, Gulshan, & Dhaka. Call 01726-725236 or text on WhatsApp for immediate feedback and factory-quality diagnostics.',
+  work: 'Explore our track record of professional TV repairs in Uttara, Bashundhara, and across Dhaka. Verified screen panel fix and firmware restoration cases.'
 };

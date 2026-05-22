@@ -49,7 +49,19 @@ const RiyadhElectronicWebsite = () => {
       const areaId = currentPage.replace('area-', '');
       const area = AREAS.find(a => a.id === areaId);
       if (area) {
-        document.title = `Best TV Repair Near ${area.name} - Riyadh Electronic Dhaka`;
+        if (area.id === 'uttara') {
+          document.title = `Riyadh Electronic - Tv Repair Uttara`;
+        } else {
+          document.title = `TV Repair ${area.name} - Riyadh Electronic | Best LED TV Repair`;
+        }
+      }
+    } else if (currentPage.startsWith('service-')) {
+      const serviceId = currentPage.replace('service-', '');
+      const service = SERVICES_DATA.find(s => s.id === serviceId);
+      if (service) {
+        document.title = `${service.title} in Uttara & Dhaka | Riyadh Electronic`;
+      } else {
+        document.title = SEO_TITLES[currentPage] || SEO_TITLES.home;
       }
     } else {
       document.title = SEO_TITLES[currentPage] || SEO_TITLES.home;
